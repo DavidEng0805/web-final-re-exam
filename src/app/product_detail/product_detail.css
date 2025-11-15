@@ -1,0 +1,101 @@
+/* Container styling */
+:host {
+  display: block;
+  font-family: Arial, sans-serif;
+}
+
+/* Modal Slide-in Animation */
+.modal-slide-in {
+  transform: translateX(-100%);
+  animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Backdrop fade-in */
+.fixed.inset-0.z-50.flex {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Product image */
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Product info */
+h1 {
+  font-size: 2rem;
+  color: #111827; /* gray-900 */
+}
+
+p {
+  font-size: 1rem;
+  color: #4B5563; /* gray-600 */
+}
+
+/* Price */
+span {
+  font-size: 1.25rem;
+  color: #DC2626; /* red-600 */
+  font-weight: bold;
+}
+
+/* Buttons */
+button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.bg-red-600 {
+  background-color: #DC2626;
+  color: #fff;
+}
+
+button.bg-red-600:hover {
+  background-color: #EF4444;
+}
+
+button.bg-gray-200 {
+  background-color: #E5E7EB;
+  color: #374151; /* gray-700 */
+}
+
+button.bg-gray-200:hover {
+  background-color: #D1D5DB;
+}
+
+/* Fallback text */
+.text-center {
+  text-align: center;
+  color: #9CA3AF; /* gray-400 */
+  font-style: italic;
+  padding: 4rem 0;
+}

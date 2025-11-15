@@ -1,0 +1,42 @@
+<div class="invoice-container">
+  <h1 class="invoice-title">{{ title }} Invoice</h1>
+
+  <div class="invoice-info">
+    <div>
+      <p>Address: 123 Main St, Phnom Penh, Cambodia</p>
+    </div>
+    <div class="invoice-meta">
+      <p>Invoice</p>
+    </div>
+  </div>
+
+  <table class="invoice-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Qty</th>
+        <th>Price (USD)</th>
+        <th>Price (KHR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart">
+        <td>{{ item.title }}</td>
+        <td>{{ item.qty }}</td>
+        <td>{{ item.price | currency:'USD' }}</td>
+        <td>៛ {{ (item.price * 4100) | number:'1.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="invoice-total">
+    <p>Total (USD): {{ totalUSD | currency:'USD' }}</p>
+    <p>Total (KHR): ៛ {{ totalKHR | number:'1.0-0' }}</p>
+  </div>
+
+  <div class="invoice-actions">
+    <button (click)="printInvoice()">Print</button>
+    <button (click)="closeInvoice()">Close</button>
+  </div>
+</div>
+

@@ -1,0 +1,95 @@
+<!-- Modal Overlay -->
+<div *ngIf="product" class="fixed inset-0 z-50 flex">
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black bg-opacity-50" (click)="close()"></div>
+
+  <!-- Modal Content - Slide in from left -->
+  <div class="relative w-full max-w-4xl bg-white shadow-2xl transform transition-transform duration-500 ease-out modal-slide-in">
+    <!-- Close Button -->
+    <button
+      class="absolute top-4 right-4 z-10 text-gray-500 hover:text-gray-700 text-2xl transition-colors"
+      (click)="close()"
+    >
+      ✕
+    </button>
+
+    <div class="flex flex-col md:flex-row h-full max-h-screen overflow-hidden">
+      <!-- Product Image -->
+      <div class="md:w-1/2 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-8">
+        <img
+          [src]="product.thumbnail || 'https://via.placeholder.com/500x500'"
+          [alt]="product.title"
+          class="max-w-full max-h-full object-contain rounded-xl shadow-lg"
+        />
+      </div>
+
+      <!-- Product Info -->
+      <div class="md:w-1/2 flex flex-col p-8 overflow-y-auto">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ product.title }}</h1>
+        <p class="text-gray-600 mb-6 leading-relaxed">{{ product.description }}</p>
+
+        <!-- Rating -->
+        <div class="flex items-center mb-4">
+          <div class="flex text-yellow-400 text-lg">
+            ★★★★★
+          </div>
+          <span class="ml-2 text-sm text-gray-600">(4.5/5 - 128 reviews)</span>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-6">
+          <span class="text-3xl font-bold text-red-600">
+            {{ product.price | currency:'USD':'symbol':'1.2-2' }}
+          </span>
+          <div class="text-gray-600 text-sm mt-1">
+            ≈ {{ (product.price * 4100 | roundHundreds:'total') | number:'1.0-0' }} ៛
+          </div>
+        </div>
+
+        <!-- Features -->
+        <div class="mb-8">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Key Features</h3>
+          <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Premium quality materials
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              Fast and free shipping
+            </li>
+            <li class="flex items-center">
+              <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              30-day return policy
+            </li>
+          </ul>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 mt-auto">
+          <button
+            class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-500 transition-all font-semibold flex-1 flex items-center justify-center gap-2"
+            (click)="addToCart(product)"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.1 5H19M7 13v8a2 2 0 002 2h10a2 2 0 002-2v-3"/>
+            </svg>
+            Add to Cart
+          </button>
+          <button
+            class="bg-gray-200 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-300 transition-all font-semibold flex-1"
+            (click)="close()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

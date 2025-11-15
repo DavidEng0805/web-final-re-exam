@@ -1,0 +1,45 @@
+<nav class="header-nav">
+  <!-- Logo -->
+  <div class="logo" (click)="goHome()">{{ title }}</div>
+
+  <!-- Navigation Links -->
+  <div class="nav-links">
+    <a (click)="goHome()">Home</a>
+
+    <!-- Dropdown for Products -->
+    <div class="dropdown">
+      <a>Products</a>
+      <div class="dropdown-menu">
+        <a>Make Up</a>
+        <a>Food</a>
+        <a>Furniture</a>
+      </div>
+    </div>
+
+    <a (click)="goToAbout()">About</a>
+  </div>
+
+  <!-- Actions: Search + Cart -->
+  <div class="actions">
+    <input 
+      type="text" 
+      placeholder="Search..." 
+      (input)="onSearch()"
+    />
+    <button (click)="openCart()">
+      🛒 Cart <span class="cart-count">3</span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Icon -->
+  <div class="mobile-menu">
+    ☰
+  </div>
+</nav>
+
+<!-- Mobile Menu Dropdown -->
+<div class="mobile-dropdown">
+  <a (click)="goHome()">Home</a>
+  <a>Products</a>
+  <a (click)="goToAbout()">About</a>
+</div>

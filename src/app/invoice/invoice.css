@@ -1,0 +1,79 @@
+.invoice-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.invoice-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #d63636;
+  margin-bottom: 20px;
+}
+
+.invoice-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.invoice-meta p, .invoice-info div p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.invoice-table th, .invoice-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.invoice-table th {
+  background-color: #f2f2f2;
+}
+
+.invoice-total {
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.invoice-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.invoice-actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+}
+
+.invoice-actions button:hover {
+  background-color: #218838;
+}
+
+.invoice-actions button:last-child {
+  background-color: #6c757d;
+}
+
+.invoice-actions button:last-child:hover {
+  background-color: #5a6268;
+}
